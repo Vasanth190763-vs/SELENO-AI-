@@ -1,0 +1,19 @@
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.post("/ai", async (req, res) => {
+  const { goal } = req.body;
+
+  res.json({
+    result: `🚀 Plan for "${goal}"\n\n1. Learn basics\n2. Practice daily\n3. Build projects\n4. Apply for jobs`
+  });
+});
+
+app.listen(5000, () => {
+  console.log("Server running on http://localhost:5000");
+});
